@@ -1,0 +1,24 @@
+[league]
+# Numeric league ID from your league URL (hockey.fantasysports.yahoo.com/hockey/<ID>).
+# Only required if you're in more than one Yahoo NHL league this season.
+league_id = ""
+timezone = "America/Vancouver"
+
+[agent]
+model = "claude-sonnet-5-5"
+max_turns = 20
+stats_type = "lastmonth"       # "season" works better in the first few weeks
+free_agents_per_position = 8
+
+[moves]
+suggest_add_drops = true
+max_adds_per_run = 1
+weekly_add_cap = 4             # your own cap; the league limit is also respected
+protected_players = []         # exact names, e.g. ["Connor McDavid", "Quinn Hughes"]
+strategy = """
+Head-to-head categories. Value consistent goal scorers and PP time.
+Stream skaters late in the week if we're close in counting categories.
+"""
+
+[notify]
+ntfy_topic = ""                # e.g. "felipe-hockey-x7k2q9" — hard to guess; subscribe to it in the ntfy app
